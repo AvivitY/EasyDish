@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="#BDD1A6">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:elevation="10dp">
+    <TextView
+        android:id="@+id/popup_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Recipe saved successfully!"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/popup_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingVertical="8dp"
+        app:cornerRadius="50dp"
+        android:elevation="10dp"
+        android:text="close"
+        android:backgroundTint="#38AA3C" />
+    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>

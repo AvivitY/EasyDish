@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/drawable/border.xml" value="0.154" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/drawable/customborder.xml" value="0.1" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/drawable/image2vector__1_.xml" value="0.139" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/drawable/logo.xml" value="0.139" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/drawable/rounded_corners.xml" value="0.139" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_add_recipe.xml" value="0.22" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_favorites.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_recipe.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_registration.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_results.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_sign.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/activity_tool_bar.xml" value="0.1" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/content_tool_bar.xml" value="0.1" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/list_directions.xml" value="0.1" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/list_ingredients.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/list_recipes.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/popup_window.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/layout/round_corner.xml" value="0.1796875" />
+        <entry key="..\:/Users/AvivitYehezkel/AndroidStudioProjects/EasyDish/app/src/main/res/menu/menu.xml" value="0.14666666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

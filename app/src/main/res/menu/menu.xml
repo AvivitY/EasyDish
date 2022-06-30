@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_search"
+        android:title="search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="always"
+        android:visible="false"
+        app:actionViewClass="android.widget.SearchView"/>
+    <item
+        android:id="@+id/menu_user"
+        android:title="user"
+        android:icon="@drawable/chef"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/favorites"
+                android:title="Favorites"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/my_recipes"
+                android:title="My Recipes"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/logout"
+                android:title="SignOut"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

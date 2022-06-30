@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "850607624030",
+    "project_id": "easydish-d9702",
+    "storage_bucket": "easydish-d9702.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850607624030:android:67e2656cba4aee51a809cf",
+        "android_client_info": {
+          "package_name": "com.avivit.easydish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850607624030-lard6unhdv5fq9th0q07l36n9k9eakjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxl3VoJWgO5ZHQoEr16hpBMj5Wr-AhlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850607624030-lard6unhdv5fq9th0q07l36n9k9eakjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
