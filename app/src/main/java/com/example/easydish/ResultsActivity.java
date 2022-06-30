@@ -34,7 +34,7 @@ public class ResultsActivity extends AppCompatActivity {
     private DatabaseReference myRef;
     private String type;
     private String name;
-    private ResultsAdapter resultsAdapter;
+    private RecipesAdapter recipesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public class ResultsActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                resultsAdapter.getFilter().filter(s);
+                recipesAdapter.getFilter().filter(s);
                 return false;
             }
         });
@@ -150,18 +150,23 @@ public class ResultsActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         results_rw = findViewById(R.id.results_rw);
-        resultsAdapter = new ResultsAdapter(this, results);
+        recipesAdapter = new RecipesAdapter(this, results,false);
         results_rw.setLayoutManager(new LinearLayoutManager(this));
         results_rw.setHasFixedSize(true);
-        results_rw.setAdapter(resultsAdapter);
+        results_rw.setAdapter(recipesAdapter);
 
-        resultsAdapter.setResultsListener(new ResultsAdapter.ResultsListener() {
+        recipesAdapter.setResultsListener(new RecipesAdapter.ResultsListener() {
             @Override
             public void clicked(Recipe recipe, int position) {
                 Intent intent = new Intent(ResultsActivity.this,RecipeActivity.class);
                 intent.putExtra("recipe",new Gson().toJson(recipe));
                 startActivity(intent);
                 Toast.makeText(ResultsActivity.this,recipe.getName(),Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void delete(Recipe recipe, int position) {
+                //do nothing
             }
         });
     }

@@ -10,23 +10,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,8 +40,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference myRef, myRef1;
-    private ResultsAdapter resultsAdapter;
-    private RecyclerView favorites_rv;
+    private RecipesAdapter recipesAdapter;
+    private RecyclerView profile_rv;
     private LinearLayout ll;
     private TextView title,profile_LBL_empty;
     private ImageButton add;
@@ -95,8 +90,6 @@ public class ProfileActivity extends AppCompatActivity {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == Activity.RESULT_OK) {
-                        // There are no request codes
-                        //Intent data = result.getData();
                         onButtonShowPopupWindowClick();
                         readData();
                     }
@@ -164,19 +157,28 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        favorites_rv = findViewById(R.id.favorites_rv);
-        resultsAdapter = new ResultsAdapter(this, recipes);
-        favorites_rv.setLayoutManager(new LinearLayoutManager(this));
-        favorites_rv.setHasFixedSize(true);
-        favorites_rv.setAdapter(resultsAdapter);
+        profile_rv = findViewById(R.id.profile_rv);
+        if (type.equals("favorites")){
+            recipesAdapter = new RecipesAdapter(this, recipes,false);
+        }else{
+            recipesAdapter = new RecipesAdapter(this, recipes,true);
+        }
+        profile_rv.setLayoutManager(new LinearLayoutManager(this));
+        profile_rv.setHasFixedSize(true);
+        profile_rv.setAdapter(recipesAdapter);
 
-        resultsAdapter.setResultsListener(new ResultsAdapter.ResultsListener() {
+        recipesAdapter.setResultsListener(new RecipesAdapter.ResultsListener() {
             @Override
             public void clicked(Recipe recipe, int position) {
                 Intent intent = new Intent(ProfileActivity.this, RecipeActivity.class);
                 intent.putExtra("recipe", new Gson().toJson(recipe));
                 startActivity(intent);
                 Toast.makeText(ProfileActivity.this, recipe.getName(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void delete(Recipe recipe, int position) {
+               onDeleteShowPopupWindowClick(recipe);
             }
         });
     }
@@ -185,9 +187,25 @@ public class ProfileActivity extends AppCompatActivity {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup_window);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
         MaterialButton close = dialog.findViewById(R.id.popup_close);
         close.setOnClickListener(view -> dialog.dismiss());
+        dialog.show();
+    }
+    private void onDeleteShowPopupWindowClick(Recipe recipe) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.delete_window);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        MaterialButton no = dialog.findViewById(R.id.delete_no);
+        MaterialButton yes = dialog.findViewById(R.id.delete_yes);
+        no.setOnClickListener(view -> dialog.dismiss());
+        yes.setOnClickListener(view -> {
+            int i = recipes.indexOf(recipe);
+            recipes.remove(recipe);
+            recipesAdapter.notifyItemRemoved(i);
+            myRef.child(uid).child("myRecipes").child(recipe.getName()).removeValue();
+            myRef1.child(recipe.getName()).removeValue();
+            dialog.dismiss();
+        });
         dialog.show();
     }
 

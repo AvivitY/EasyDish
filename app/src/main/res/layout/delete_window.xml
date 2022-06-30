@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardUseCompatPadding="true"
+    android:backgroundTint="#FFFFFF">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:elevation="10dp">
+    <TextView
+        android:id="@+id/delete_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Are you sure?"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/delete_no"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        android:paddingVertical="8dp"
+        app:cornerRadius="50dp"
+        android:elevation="10dp"
+        android:text="no"
+        android:backgroundTint="#F44336" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delete_yes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="16dp"
+            android:paddingVertical="8dp"
+            app:cornerRadius="50dp"
+            android:elevation="10dp"
+            android:text="yes"
+            android:backgroundTint="#38AA3C" />
+        </LinearLayout>
+    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>

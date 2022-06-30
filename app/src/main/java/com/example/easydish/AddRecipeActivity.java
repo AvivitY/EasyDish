@@ -62,7 +62,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 
     String imageName;
 
-    private String[] measures = {"Measurement", "CUP", "TBSP", "TSP", "PINCH", ""};
+    private String[] measures = {"Measurement", "CUP", "TBSP", "TSP", "PINCH","GRAM","KILOGRAM",""};
     static int ingCount = 1;
     static int directCount = 1;
 
@@ -201,7 +201,10 @@ public class AddRecipeActivity extends AppCompatActivity {
     private void getRecipeData() {
         for (int i = 1; i <= ingCount; i++) {
             TableRow row = (TableRow) tl.getChildAt(i);
-            double qty = Double.parseDouble(((EditText) row.getChildAt(0)).getText().toString());
+            double qty = 0;
+            if(!((EditText) row.getChildAt(0)).getText().toString().equals("")){
+                qty = Double.parseDouble(((EditText) row.getChildAt(0)).getText().toString());
+            }
             String measure = ((Spinner) row.getChildAt(1)).getSelectedItem().toString();
             String name = ((EditText) row.getChildAt(2)).getText().toString();
             Ingredient ingredient = new Ingredient().setQty(qty).setMeasurement(measure).setName(name);

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,28 +20,30 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Locale;
 
-public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
+public class RecipesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
 
     public interface ResultsListener {
         void clicked(Recipe recipe, int position);
+        void delete(Recipe recipe,int position);
     }
 
     private Activity activity;
+    private boolean isMyRecipes;
     private ArrayList<Recipe> recipes = new ArrayList<>();
     private ArrayList<Recipe> recipesAll = new ArrayList<>();
     private ResultsListener resultslistener;
     private FirebaseStorage storage;
     private StorageReference photoRef;
 
-    public ResultsAdapter(Activity activity, ArrayList<Recipe> recipes){
+    public RecipesAdapter(Activity activity, ArrayList<Recipe> recipes,boolean isMyRecipes){
         this.activity = activity;
         this.recipes = recipes;
         this.recipesAll = new ArrayList<>(recipes);
+        this.isMyRecipes = isMyRecipes;
     }
 
-    public ResultsAdapter setResultsListener(ResultsListener resultslistener) {
+    public RecipesAdapter setResultsListener(ResultsListener resultslistener) {
         this.resultslistener = resultslistener;
         return this;
     }
@@ -56,6 +59,9 @@ public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         final ResultsHolder holder = (ResultsHolder) viewHolder;
         Recipe recipe = recipes.get(position);
+        if (isMyRecipes){
+            holder.recipe_delete.setVisibility(View.VISIBLE);
+        }
         holder.recipe_name.setText(String.valueOf(recipe.getName()));
         storage = FirebaseStorage.getInstance();
         photoRef = storage.getReference("images/"+recipe.getImg());
@@ -68,7 +74,6 @@ public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         .into(holder.recipe_img);
             }
         });
-        //holder.recipe_img.setImageURI(Uri.parse(recipe.getImg()));
     }
 
     @Override
@@ -118,11 +123,13 @@ public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         private MaterialTextView recipe_name;
         private ImageView recipe_img;
+        private ImageButton recipe_delete;
 
         public ResultsHolder(View itemView) {
             super(itemView);
             recipe_name = itemView.findViewById(R.id.recipe_name);
             recipe_img = itemView.findViewById(R.id.recipe_img);
+            recipe_delete = itemView.findViewById(R.id.recipe_delete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -132,7 +139,16 @@ public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     }
                 }
             });
-        }
 
+            recipe_delete.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    if(resultslistener != null) {
+                        resultslistener.delete(getItem(getAdapterPosition()), getAdapterPosition());
+                        notifyDataSetChanged();
+                    }
+                }
+            });
+        }
     }
 }
