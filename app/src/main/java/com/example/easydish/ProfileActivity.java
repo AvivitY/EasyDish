@@ -104,14 +104,6 @@ public class ProfileActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 if (!dataSnapshot.hasChildren()) {
-//                    TextView empty = new TextView(ProfileActivity.this);
-//                    empty.setText("No Recipes Yet :(");
-//                    empty.setGravity(Gravity.CENTER_HORIZONTAL);
-//                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-//                            LinearLayout.LayoutParams.MATCH_PARENT
-//                            , LinearLayout.LayoutParams.WRAP_CONTENT);
-//                    empty.setLayoutParams(params);
-//                    ll.addView(empty);
                     profile_LBL_empty.setVisibility(View.VISIBLE);
                 } else {
                     profile_LBL_empty.setVisibility(View.GONE);
@@ -173,7 +165,6 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(ProfileActivity.this, RecipeActivity.class);
                 intent.putExtra("recipe", new Gson().toJson(recipe));
                 startActivity(intent);
-                Toast.makeText(ProfileActivity.this, recipe.getName(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

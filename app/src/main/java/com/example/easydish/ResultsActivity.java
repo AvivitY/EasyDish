@@ -161,7 +161,6 @@ public class ResultsActivity extends AppCompatActivity {
                 Intent intent = new Intent(ResultsActivity.this,RecipeActivity.class);
                 intent.putExtra("recipe",new Gson().toJson(recipe));
                 startActivity(intent);
-                Toast.makeText(ResultsActivity.this,recipe.getName(),Toast.LENGTH_SHORT).show();
             }
 
             @Override

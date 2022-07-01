@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -63,14 +64,15 @@ public class AddRecipeActivity extends AppCompatActivity {
     String imageName;
 
     private String[] measures = {"Measurement", "CUP", "TBSP", "TSP", "PINCH","GRAM","KILOGRAM",""};
-    static int ingCount = 1;
-    static int directCount = 1;
+    private int ingCount = 1;
+    private int directCount = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
         findViews();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         progressDialog = new ProgressDialog(this);
         ingredients = new ArrayList<>();
         directions = new ArrayList<>();
@@ -119,7 +121,6 @@ public class AddRecipeActivity extends AppCompatActivity {
 
         EditText qty = new EditText(this);
         qty.setPadding(8, 8, 8, 8);
-        qty.setEms(10);
         qty.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         TableRow.LayoutParams params0 = new TableRow.LayoutParams();
         params0.column = 0;
@@ -135,22 +136,20 @@ public class AddRecipeActivity extends AppCompatActivity {
 
         EditText name = new EditText(this);
         name.setHint("Name");
-        name.setEms(10);
         name.setPadding(8, 8, 8, 8);
         name.setInputType(InputType.TYPE_CLASS_TEXT);
         TableRow.LayoutParams params2 = new TableRow.LayoutParams();
         params2.column = 2;
-        params2.span = 2;
         name.setLayoutParams(params2);
 
         ImageButton ib = new ImageButton(this);
         ib.setPadding(30, 30, 30, 30);
         ib.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        ib.setBackgroundColor(0xffffffff);
+        ib.setBackgroundColor(0x00FFFFFF);
         ib.setImageResource(R.drawable.close);
         TableRow.LayoutParams params3 = new TableRow.LayoutParams();
-        params3.height = TableLayout.LayoutParams.MATCH_PARENT;
-        params3.width = TableLayout.LayoutParams.MATCH_PARENT;
+        params3.height = TableRow.LayoutParams.MATCH_PARENT;
+        params3.width = TableRow.LayoutParams.MATCH_PARENT;
         params3.column = 3;
         params3.span = 2;
         ib.setLayoutParams(params3);
@@ -190,7 +189,7 @@ public class AddRecipeActivity extends AppCompatActivity {
         direct.setHint("Name");
         LinearLayout.LayoutParams params1 = new LinearLayout.LayoutParams(0,
                 LinearLayout.LayoutParams.MATCH_PARENT);
-        params1.weight = 7;
+        params1.weight = 5;
         direct.setLayoutParams(params1);
         ll.addView(count);
         ll.addView(direct);
@@ -344,6 +343,16 @@ public class AddRecipeActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+                onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onDestroy() {
         if(progressDialog.isShowing()) {

@@ -10,7 +10,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/border">
 
         <LinearLayout
@@ -18,12 +21,14 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/recipe_LBL_title"
                     android:layout_width="0dp"
@@ -36,18 +41,20 @@
                     android:text="Recipe Name"
                     android:textColor="@color/black"
                     android:textSize="30dp" />
-            <ImageButton
-                android:id="@+id/recipe_IMG_favorite"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:backgroundTint="@color/fui_transparent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/empty_heart"/>
+
+                <ImageButton
+                    android:id="@+id/recipe_IMG_favorite"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/fui_transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/empty_heart" />
 
 
             </LinearLayout>
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
@@ -64,6 +71,7 @@
                 android:id="@+id/recipe_LBL_ing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="Ingredients:"
                 android:textColor="@color/black"
                 android:textSize="24dp" />
@@ -72,12 +80,13 @@
                 android:id="@+id/recipe_LST_ing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/fui_transparent"/>
+                android:backgroundTint="@color/fui_transparent" />
 
             <TextView
                 android:id="@+id/recipe_LBL_direct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:text="Directions:"
                 android:textColor="@color/black"
                 android:textSize="24dp" />
@@ -86,7 +95,7 @@
                 android:id="@+id/recipe_LST_direct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/fui_transparent"/>
+                android:backgroundTint="@color/fui_transparent" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

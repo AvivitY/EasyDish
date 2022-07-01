@@ -41,17 +41,17 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <ImageButton
                 android:id="@+id/recipe_delete"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:visibility="gone"
                 android:backgroundTint="@color/fui_transparent"
                 android:scaleType="fitCenter"
                 android:src="@drawable/close"
+                android:visibility="gone"
                 app:tint="#DC1E10" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

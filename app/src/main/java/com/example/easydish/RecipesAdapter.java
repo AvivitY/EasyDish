@@ -9,6 +9,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -139,13 +140,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     }
                 }
             });
-
             recipe_delete.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view) {
                     if(resultslistener != null) {
                         resultslistener.delete(getItem(getAdapterPosition()), getAdapterPosition());
-                        notifyDataSetChanged();
                     }
                 }
             });
