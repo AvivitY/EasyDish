@@ -1,31 +1,27 @@
-package com.example.easydish;
+package com.example.easydish.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RadioButton;
-import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.example.easydish.data.Ingredient;
+import com.example.easydish.R;
+import com.example.easydish.data.Recipe;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -64,10 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("recipes");
-//        ArrayList<Recipe> recipes = DataManager.generateData();
-//        for (Recipe recipe : recipes){
-//           // myRef.child(recipe.getName()).setValue(recipe);
-//        }
         readData();
     }
 
@@ -213,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                         100
                         , 100);
                 ib.setLayoutParams(params1);
-                ll.setBackgroundResource(R.drawable.rounded_corners);
+                ll.setBackgroundResource(R.drawable.ingredients_corners);
                 ll.addView(ntv);
                 ll.addView(ib);
                 ib.setOnClickListener(view1 -> {

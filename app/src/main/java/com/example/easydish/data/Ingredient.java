@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.data;
 
 public class Ingredient {
     private double qty;

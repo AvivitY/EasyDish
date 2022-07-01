@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.activities;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -23,8 +23,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.easydish.R;
+import com.example.easydish.data.Recipe;
+import com.example.easydish.adapters.RecipesAdapter;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -83,7 +85,6 @@ public class ProfileActivity extends AppCompatActivity {
         someActivityResultLauncher.launch(intent);
     }
 
-    // You can do the assignment inside onAttach or onCreate, i.e, before the activity is displayed
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -226,7 +227,7 @@ public class ProfileActivity extends AppCompatActivity {
                 break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent login = new Intent(ProfileActivity.this,Activity_Sign.class);
+                Intent login = new Intent(ProfileActivity.this, Activity_Sign.class);
                 startActivity(login);
                 finish();
                 break;

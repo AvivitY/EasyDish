@@ -24,7 +24,7 @@
                 android:padding="8dp"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="17dp" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/direction"
@@ -34,7 +34,7 @@
                 android:padding="8dp"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="17dp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

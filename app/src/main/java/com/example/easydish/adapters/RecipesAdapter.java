@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.adapters;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -9,11 +9,12 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.easydish.R;
+import com.example.easydish.data.Recipe;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.storage.FirebaseStorage;

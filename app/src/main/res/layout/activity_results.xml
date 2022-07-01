@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultsActivity">
+    tools:context=".activities.ResultsActivity">
 
     <TextView
         android:id="@+id/title"
@@ -22,6 +22,18 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/results_rw"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/title" />
+    <TextView
+        android:id="@+id/results_LBL_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Results :("
+        android:padding="8dp"
+        android:textSize="36dp"
+        android:visibility="invisible"
+        android:layout_below="@id/results_rw"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center"/>
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,9 +11,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SearchView;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import com.example.easydish.data.Ingredient;
+import com.example.easydish.R;
+import com.example.easydish.data.Recipe;
+import com.example.easydish.adapters.RecipesAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +33,7 @@ import java.util.TreeSet;
 public class ResultsActivity extends AppCompatActivity {
 
     private RecyclerView results_rw;
+    private TextView results_LBL_empty;
     private ArrayList<Recipe> results;
     private TreeSet<String> chosenIng;
     private FirebaseDatabase database;
@@ -47,6 +53,7 @@ public class ResultsActivity extends AppCompatActivity {
         }else {
             chosenIng = (TreeSet<String>) getIntent().getExtras().get("ingredients");
         }
+        results_LBL_empty = findViewById(R.id.results_LBL_empty);
         results = new ArrayList<>();
         initRecyclerView();
         database = FirebaseDatabase.getInstance();
@@ -64,7 +71,6 @@ public class ResultsActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu,menu);
         MenuItem menuItem = menu.findItem(R.id.menu_search);
         menuItem.setVisible(true);
-        //this.invalidateOptionsMenu();
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Type Here To Search..");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -101,7 +107,7 @@ public class ResultsActivity extends AppCompatActivity {
                 break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent login = new Intent(ResultsActivity.this,Activity_Sign.class);
+                Intent login = new Intent(ResultsActivity.this, Activity_Sign.class);
                 startActivity(login);
                 finish();
                 break;
@@ -136,7 +142,12 @@ public class ResultsActivity extends AppCompatActivity {
                         }
                     }
                 }
-                initRecyclerView();
+                if (results.size() == 0){
+                    results_LBL_empty.setVisibility(View.VISIBLE);
+                }else{
+                    results_LBL_empty.setVisibility(View.INVISIBLE);
+                    initRecyclerView();
+                }
             }
 
             @Override
@@ -158,7 +169,7 @@ public class ResultsActivity extends AppCompatActivity {
         recipesAdapter.setResultsListener(new RecipesAdapter.ResultsListener() {
             @Override
             public void clicked(Recipe recipe, int position) {
-                Intent intent = new Intent(ResultsActivity.this,RecipeActivity.class);
+                Intent intent = new Intent(ResultsActivity.this, RecipeActivity.class);
                 intent.putExtra("recipe",new Gson().toJson(recipe));
                 startActivity(intent);
             }

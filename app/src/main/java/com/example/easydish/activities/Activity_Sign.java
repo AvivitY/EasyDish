@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.activities;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.easydish.R;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -75,7 +76,7 @@ public class Activity_Sign extends AppCompatActivity {
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             myRef.child(uid).child("email").setValue(email);
 
-            Intent main = new Intent(this,MainActivity.class);
+            Intent main = new Intent(this, MainActivity.class);
             startActivity(main);
             finish();
         } else {

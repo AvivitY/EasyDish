@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.adapters;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.easydish.R;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;

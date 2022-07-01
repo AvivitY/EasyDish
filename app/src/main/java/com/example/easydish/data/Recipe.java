@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.data;
 
 import java.util.ArrayList;
 

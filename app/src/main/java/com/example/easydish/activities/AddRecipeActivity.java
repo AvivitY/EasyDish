@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +25,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.easydish.data.Ingredient;
+import com.example.easydish.R;
+import com.example.easydish.data.Recipe;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

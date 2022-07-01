@@ -18,13 +18,13 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/qty"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:padding="8dp"
                 android:text="3"
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="16dp" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/measure"
@@ -35,7 +35,7 @@
                 android:padding="8dp"
                 android:text="Cup"
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="16dp" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ing"
@@ -46,7 +46,7 @@
                 android:padding="8dp"
                 android:text="Water"
                 android:textColor="@color/black"
-                android:textSize="24dp" />
+                android:textSize="16dp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

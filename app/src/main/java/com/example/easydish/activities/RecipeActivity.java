@@ -1,4 +1,4 @@
-package com.example.easydish;
+package com.example.easydish.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +13,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.easydish.adapters.DirectionsAdapter;
+import com.example.easydish.data.Ingredient;
+import com.example.easydish.adapters.IngredientsAdapter;
+import com.example.easydish.R;
+import com.example.easydish.data.Recipe;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -154,7 +158,7 @@ public class RecipeActivity extends AppCompatActivity {
                 break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent login = new Intent(RecipeActivity.this,Activity_Sign.class);
+                Intent login = new Intent(RecipeActivity.this, Activity_Sign.class);
                 startActivity(login);
                 finish();
                 break;

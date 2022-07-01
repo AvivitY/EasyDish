@@ -12,10 +12,10 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.EasyDish">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activities.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity_Sign"
+            android:name=".activities.Activity_Sign"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,17 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ResultsActivity"
+            android:name=".activities.ResultsActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true" />
         <activity
-            android:name=".AddRecipeActivity"
+            android:name=".activities.AddRecipeActivity"
             android:exported="true" />
         <activity
-            android:name=".RecipeActivity"
+            android:name=".activities.RecipeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
         </activity>
